@@ -2,3 +2,5 @@ cmake
 dlib
 wget
 gradio
+mmcv==2.0.0
+mmgen
