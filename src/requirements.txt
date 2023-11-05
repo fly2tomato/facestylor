@@ -2,5 +2,6 @@ cmake
 dlib
 wget
 gradio
+opencv-python
 mmcv==2.0.0
 mmgen
