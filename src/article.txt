@@ -1,0 +1,56 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PMH1R6L3N2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PMH1R6L3N2');
+</script>
+
+<center style="display: flex; justify-content: space-around;align-items: center;width: 100%; margin: 0 auto;">
+    <div style="text-align:center; width:120px;">
+        <p style="padding-left:40px"><img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
+            width="40px"/></p>
+        <p><a href="https://github.com/open-mmlab/mmgeneration">mmgeneration</a></p>
+    </div>
+    <div style="text-align:center">
+        <p style="padding-left:40px"><img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
+            width="40" /></p>
+        <p><a href="https://github.com/open-mmlab/MMGEN-FaceStylor">MMGEN-FaceStylor</a></p>
+    </div>
+</center>
+<img src="https://user-images.githubusercontent.com/22982797/145390251-d597b1bb-a8fc-4edc-a3bd-7414b5022956.png">
+
+
+
+⭐这个应用是由 [MMGEN](https://github.com/open-mmlab/mmgeneration) 和 [MMGEN-FaceStylor](https://github.com/open-mmlab/MMGEN-FaceStylor) 支持的，如果玩的开心，请给我们 repo 点 star 支持，非常感谢！😘
+
+😍如果你想让我们添加一些其他好玩的东西（包括人脸相关应用，图片视频风格化等），请在 [MMGEN-FaceStylor](https://github.com/open-mmlab/MMGEN-FaceStylor) 给我们提[issue](https://github.com/open-mmlab/MMGEN-FaceStylor/issues)!
+
+🐛如果提交图片遇到 error， 请尝试使用更小的图片(小于1M),或者刷新重试;
+
+⭐This demo is supported by [MMGEN](https://github.com/open-mmlab/mmgeneration) and [MMGEN-FaceStylor](https://github.com/open-mmlab/MMGEN-FaceStylor), please star our repos and have fun, thanks a lot 😘!
+
+😍If you want us to add more fun stuffs(face-related apps, stylization, etc.), please [issue](https://github.com/open-mmlab/MMGEN-FaceStylor/issues) at [MMGEN-FaceStylor](https://github.com/open-mmlab/MMGEN-FaceStylor)!
+
+🐛If you encounter an error, try using a smaller image (less than 1M), or refresh and retry.
+
+选项解释:
+
+Toonify：类似于迪士尼卡通风格
+
+Oil：油画风格
+
+Cartoon：仅限小姐姐使用
+
+Comic：美漫风格
+
+Bitmoji：emoji人像
+
+Sketch：素描
+
+<div align="center">
+    <b>Results of <a href="https://github.com/open-mmlab/MMGEN-FaceStylor">FaceStylor</a> trained by <a href="https://github.com/open-mmlab/mmgeneration">MMGEN</a></b>
+  <img src="https://user-images.githubusercontent.com/22982797/144411672-77fe6bcd-8fe4-40e6-8e7b-903cbac9ed58.gif">
+</div>
