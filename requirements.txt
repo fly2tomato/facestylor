@@ -4,4 +4,4 @@ wget
 gradio
 opencv-python
 mmcv==1.7.1
-mmgen
+mmgen==0.7.3
