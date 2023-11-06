@@ -3,6 +3,11 @@ dlib
 wget
 gradio
 opencv-python
-mmcv==1.0.0
-mmgen==0.7.3
+Pillow==8.0.0
+PrettyTable
+scipy
+
+torch==1.8.0
+torchvision==0.9.0
+torchaudio==0.8.0
 mmcls
