@@ -3,5 +3,5 @@ dlib
 wget
 gradio
 opencv-python
-mmcv==2.0.0
+mmcv==1.8.0
 mmgen
