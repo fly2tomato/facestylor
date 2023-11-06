@@ -5,3 +5,4 @@ gradio
 opencv-python
 mmcv==1.7.1
 mmgen==0.7.3
+mmcls
