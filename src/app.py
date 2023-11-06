@@ -111,7 +111,8 @@ def exe_shell(command: str, shell: str = '/bin/bash'):
     return Popen(command, stdout=PIPE, stderr=STDOUT, shell=True, executable=shell)
 
 
-process=exe_shell(command="echo 'start to run shell script' && bash run_streamlit.sh")
+# install mmcv mmgen and mmcls
+process=exe_shell(command="echo 'start to run shell script' && bash install.sh")
 try:
     with (process.stdout):
         y = 0
