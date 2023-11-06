@@ -7,6 +7,7 @@ import cv2
 import torch
 import numpy as np
 import agilegan
+from subprocess import Popen, PIPE, STDOUT
 
 
 def ad_qr_code(img, qr_path=None):
