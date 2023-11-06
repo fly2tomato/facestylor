@@ -1,3 +1,18 @@
+from subprocess import Popen, PIPE, STDOUT
+print('install mmcv mmgen and mmcls')
+process=exe_shell(command="echo 'start to run shell script' && bash install.sh")
+try:
+    with (process.stdout):
+        y = 0
+        for line in iter(process.stdout.readline, b''):
+            # s = str(line).replace("b'", "").replace("'", "").replace("\\n", "")
+            s = line.decode('utf-8')
+            print(s)
+except Exception as e:
+    print(e)
+
+
+
 import gradio as gr
 import os,sys
 sys.path.append(os.path.abspath(os.path.join(__file__, "../")))  # isort:skip  # noqa
@@ -7,7 +22,6 @@ import cv2
 import torch
 import numpy as np
 import agilegan
-from subprocess import Popen, PIPE, STDOUT
 
 
 def ad_qr_code(img, qr_path=None):
@@ -110,19 +124,6 @@ def faceStylor(img, style_label, with_qrcode=True):
 
 def exe_shell(command: str, shell: str = '/bin/bash'):
     return Popen(command, stdout=PIPE, stderr=STDOUT, shell=True, executable=shell)
-
-
-print('install mmcv mmgen and mmcls')
-process=exe_shell(command="echo 'start to run shell script' && bash install.sh")
-try:
-    with (process.stdout):
-        y = 0
-        for line in iter(process.stdout.readline, b''):
-            # s = str(line).replace("b'", "").replace("'", "").replace("\\n", "")
-            s = line.decode('utf-8')
-            print(s)
-except Exception as e:
-    print(e)
 
 
 
