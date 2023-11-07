@@ -104,10 +104,10 @@ def faceStylor(img, style_label, with_qrcode=True):
           style_image = ad_qr_code(style_image, _QR_PATH)
           style_image = add_src_img(style_image, aligned_img)
       return style_image, "手机长按保存图片，电脑右键点击保存图片。 \n Long press or right click to save the picture.", "<center><a href=\"https://github.com/open-mmlab/MMGEN-FaceStylor/issues\"><button style=\"border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;background-color: #4CAF50;\">反馈 Feedback</button></a></center>"
-    except:
-      print("error", "facestylor")
+    except Exception as e:
+      print(f"error={e}")
       testor.move_out_cuda()
-      return "failed"
+      return "failed"，"failed", "failed"
 
 
 
