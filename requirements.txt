@@ -11,4 +11,5 @@ Pillow==8.0.0
 PrettyTable
 scipy
 mmcls
+git+https://github.com/open-mmlab/mmgeneration.git
 openmim

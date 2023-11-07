@@ -41,7 +41,7 @@ _SWAP_LAYER = {
     'cartoon': 1,
     'bitmoji':1,
     'comic':2,
-}   
+}
 def parse_args():
     parser = argparse.ArgumentParser(description='AgileGAN Demo')
     parser.add_argument('img_path', help='source image path')
@@ -85,6 +85,7 @@ def load_image(img):
     img = img.unsqueeze(0).float()
     return img, aligned_img
 
+
 class AgileGANTest():
     def __init__(self,
                  encoder_config=None,
@@ -94,12 +95,12 @@ class AgileGANTest():
         self.encoder_model = init_model(encoder_config, checkpoint=encoder_ckpt, device='cpu').eval()
         self.transfer_model = init_model(transfer_config, checkpoint=transfer_ckpt, device='cpu').eval()
         self.index = 4515
-        
+
     def load_in_cuda(self):
         self.encoder = deepcopy(self.encoder_model.encoder).cuda()
         self.src_gen = deepcopy(self.encoder_model.decoder).cuda()
         self.style_gen = deepcopy(self.transfer_model.generator_ema).cuda()
-    
+
     def move_out_cuda(self):
         if hasattr(self, "encoder"):
             del self.encoder
@@ -108,19 +109,19 @@ class AgileGANTest():
         if hasattr(self, "style_gen"):
             del self.style_gen
         torch.cuda.empty_cache()
-        
+
     def aligned(self, img):
         print("Align Image")
         image, aligned_img = load_image(img)
         return image, aligned_img
-    
+
     def inversion(self, image, resize=True):
         print("Performing Projection")
         codes = self.encoder(image.cuda())
         codes = [self.src_gen.style_mapping(s) for s in codes]
         codes = torch.stack(codes, dim=0)
         return codes
-    
+
     def stylization(self, codes, save_path=None, resize=True):
         print("Performing Stylization")
         style_image = self.style_gen([codes],
@@ -132,9 +133,9 @@ class AgileGANTest():
             style_image = style_image[:, [2, 1, 0], ...]
             if resize:
                 style_image = F.adaptive_avg_pool2d(style_image, (256, 256))
-            save_image(style_image, save_path, normalize=True)      
+            save_image(style_image, save_path, normalize=True)
         return style_image
-    
+
     def layerSwap(self, codes, save_path=None, resize=True, swap_layer=1):
         print("Performing Layer Swapping")
         _, save_swap_layer = self.src_gen.swap_forward(
@@ -155,16 +156,16 @@ class AgileGANTest():
                 style_image = F.adaptive_avg_pool2d(style_image, (256, 256))
             save_image(style_image, save_path, normalize=True)
         return style_image
-        
+
     @torch.no_grad()
     def run(self, image, save_path, style, swap_layer=-1, resize=False):
 
         self.load_in_cuda()
         image, aligned_img = self.aligned(image)
         codes = self.inversion(image)
-        mmcv.mkdir_or_exist(os.path.dirname(save_path)) 
+        mmcv.mkdir_or_exist(os.path.dirname(save_path))
         if _SWAP_LAYER[style] >0 :
-            style_image = self.layerSwap(codes, save_path=save_path, swap_layer=swap_layer 
+            style_image = self.layerSwap(codes, save_path=save_path, swap_layer=swap_layer
                            if swap_layer>0 else _SWAP_LAYER[style], resize=resize)
         else:
             style_image = self.stylization(codes, save_path=args.save_path, resize=args.resize)
@@ -174,8 +175,8 @@ class AgileGANTest():
 if __name__ == '__main__':
     args = parse_args()
     assert args.style in _SUPPORTED_STYLE
-    
-    
+
+
     if args.style in _RES256:
         encoder_config = base_root + '/configs/demo/agile_encoder_256x256.py'
         encoder_ckpt = base_root + '/work_dirs/pre-trained/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth'
@@ -189,16 +190,16 @@ if __name__ == '__main__':
 
     transfer_ckpt = _SUPPORTED_STYLE[args.style]
     download_ckpt(transfer_ckpt, _CKPT_URL[args.style])
-    
+
     testor = AgileGANTest(encoder_config=encoder_config, encoder_ckpt=
                         encoder_ckpt, transfer_config=transfer_config, transfer_ckpt=transfer_ckpt)
     if args.batch:
         for filename in os.listdir(args.img_path):
             try:
                 image = cv2.imread(os.path.join(args.img_path, filename))
-                testor.run(image, os.path.join(args.save_path, filename), args.style, args.swap_layer, resize=args.resize)   
+                testor.run(image, os.path.join(args.save_path, filename), args.style, args.swap_layer, resize=args.resize)
             except:
-                pass         
+                pass
     else:
         image = cv2.imread(args.img_path)
         testor.run(image, args.save_path, args.style, args.swap_layer, resize=args.resize)

@@ -1,4 +1,7 @@
 #!/bin/bash
 
-git clone https://github.com/open-mmlab/mmgeneration.git && pip install -r mmgeneration/requirements.txt && pip install -v -e mmgeneration/.
-python app.py
+mim install mmcv-full==1.7.1
+
+cd /home/xlab-app-center/src/mmgeneration && pip install -r requirements.txt && pip install -v -e .
+
+cd /home/xlab-app-center && python -u src/app.py
