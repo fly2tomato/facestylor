@@ -149,6 +149,6 @@ iface = gr.Interface(
     description=description_all,
     article=article,
     allow_flagging=False,
-    concurrency_limit=2
+    concurrency_limit=3
 ).launch(share=share, server_name="0.0.0.0", server_port=7860)
 
