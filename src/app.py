@@ -16,6 +16,7 @@ except Exception as e:
 
 
 import gradio as gr
+from gradio import Textbox, HTML, Checkbox, Radio
 import os,sys
 sys.path.append(os.path.abspath(os.path.join(__file__, "../")))  # isort:skip  # noqa
 from demo.quick_try import AgileGANTest, _SUPPORTED_STYLE, download_ckpt, _CKPT_URL, _RES256
@@ -146,11 +147,22 @@ description="This is a demo for MMGEN-FaceStylor.\n\n\t\
 description_zh = "这是MMGEN-FaceStylor的一个演示，只需要上传一张图片并选择一个风格，它就可以生成风格化的人脸图片。最好使用清晰的人正脸照片。网页下方有关于风格的解释。"
 description_all = description_zh+description
 
-btn = gr.outputs.HTML(label="ISSUE")
-hint_box = gr.outputs.Textbox(type="auto", label="提示 Hint")
+btn = HTML(label="ISSUE")
+hint_box = Textbox(type="text", label="提示 Hint")
 article = open(base_root + "/article.txt", "r", encoding='UTF-8').read()
-checkbox = gr.inputs.Checkbox(default=True, label="附二维码 With QR code")
-iface = gr.Interface(fn=faceStylor, inputs=["image", gr.inputs.Radio([
-  '卡通 toonify', '油画 oil', '卡通(小姐姐专用) cartoon', '美漫 comic', '人像emoji bitmoji', '素描 sketch']), checkbox],
-    outputs=["image", hint_box, btn], title=title, description=description_all, article=article, allow_flagging=True).launch(share=share, server_name="0.0.0.0", server_port=7600)
+checkbox = Checkbox(label="附二维码 With QR code")
+iface = gr.Interface(
+    fn=faceStylor,
+    inputs=[
+        "image",
+        Radio(
+            ['卡通 toonify', '油画 oil', '卡通(小姐姐专用) cartoon', '美漫 comic', '人像emoji bitmoji', '素描 sketch']),
+        checkbox
+    ],
+    outputs=["image", hint_box, btn],
+    title=title,
+    description=description_all,
+    article=article,
+    allow_flagging=False
+).launch(share=share, server_name="0.0.0.0", server_port=7860)
 
