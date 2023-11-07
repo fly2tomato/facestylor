@@ -199,7 +199,7 @@ class SwapStyleGANv2Generator(StyleGANv2Generator):
         return img, save_swap_layer
 
 
-@MODULES.register_module()
+#@MODULES.register_module()
 class ADAStyleGAN2Discriminator(StyleGAN2Discriminator):
     def __init__(self, in_size, *args, data_aug=None, **kwargs):
         """StyleGANv2 Discriminator with adaptive augmentation.
@@ -223,7 +223,7 @@ class ADAStyleGAN2Discriminator(StyleGAN2Discriminator):
         return super().forward(x)
 
 
-@MODULES.register_module()
+#@MODULES.register_module()
 class ADAAug(nn.Module):
     """Data Augmentation Module for Adaptive Discriminator augmentation.
 
