@@ -1,18 +1,3 @@
-from subprocess import Popen, PIPE, STDOUT
-def exe_shell(command: str, shell: str = '/bin/bash'):
-    return Popen(command, stdout=PIPE, stderr=STDOUT, shell=True, executable=shell)
-print('install mmcv mmgen and mmcls')
-process=exe_shell(command="echo 'start to run shell script' && bash /home/xlab-app-center/src/install.sh")
-try:
-    with (process.stdout):
-        y = 0
-        for line in iter(process.stdout.readline, b''):
-            # s = str(line).replace("b'", "").replace("'", "").replace("\\n", "")
-            s = line.decode('utf-8')
-            print(s)
-except Exception as e:
-    print(e)
-
 
 
 import gradio as gr
