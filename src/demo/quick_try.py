@@ -14,7 +14,7 @@ from copy import deepcopy
 import numpy as np
 
 base_root = os.path.abspath(os.path.join(__file__, '../../'))
-ckpt_base = '/home/xlab-app-center/.cache'
+ckpt_base = base_root
 
 _SUPPORTED_STYLE = {
     'toonify': ckpt_base + '/work_dirs/lite-weights/agile_transfer_toonify1024x1024_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_1600iter_20211104_134449-cb6785b6.pth',

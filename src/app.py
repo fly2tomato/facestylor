@@ -43,12 +43,12 @@ def make_testors():
     for style in _SUPPORTED_STYLE:
         if style in _RES256:
             encoder_config = base_root + '/configs/demo/agile_encoder_256x256.py'
-            encoder_ckpt =  '/home/xlab-app-center/.cache/work_dirs/lite-weights/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth'
+            encoder_ckpt =  base_root + '/work_dirs/lite-weights/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth'
             download_ckpt(encoder_ckpt, _CKPT_URL['encoder256'])
             transfer_config = base_root + '/configs/demo/agile_transfer_256x256.py'
         else:
-            encoder_config = base_root+'/configs/demo/agile_encoder_1024x1024.py'
-            encoder_ckpt = '/home/xlab-app-center/.cache/work_dirs/lite-weights/agile_encoder_ffhq1024x1024_lr_1e-4_500kiter_20211201_112111-fb1312dc.pth'
+            encoder_config = base_root +'/configs/demo/agile_encoder_1024x1024.py'
+            encoder_ckpt = base_root + '/work_dirs/lite-weights/agile_encoder_ffhq1024x1024_lr_1e-4_500kiter_20211201_112111-fb1312dc.pth'
             download_ckpt(encoder_ckpt, _CKPT_URL['encoder1024'])
             transfer_config = base_root+'/configs/demo/agile_transfer_1024x1024.py'
 
@@ -65,12 +65,12 @@ def make_testor(style):
     print(f"start a make_testor")
     if style in _RES256:
         encoder_config = base_root + '/configs/demo/agile_encoder_256x256.py'
-        encoder_ckpt = '/home/xlab-app-center/.cache/work_dirs/lite-weights/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth'
+        encoder_ckpt = base_root + '/work_dirs/lite-weights/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth'
         download_ckpt(encoder_ckpt, _CKPT_URL['encoder256'])
         transfer_config = base_root + '/configs/demo/agile_transfer_256x256.py'
     else:
         encoder_config = base_root+'/configs/demo/agile_encoder_1024x1024.py'
-        encoder_ckpt = '/home/xlab-app-center/.cache/work_dirs/lite-weights/agile_encoder_ffhq1024x1024_lr_1e-4_500kiter_20211201_112111-fb1312dc.pth'
+        encoder_ckpt = base_root + '/work_dirs/lite-weights/agile_encoder_ffhq1024x1024_lr_1e-4_500kiter_20211201_112111-fb1312dc.pth'
         download_ckpt(encoder_ckpt, _CKPT_URL['encoder1024'])
         transfer_config = base_root+'/configs/demo/agile_transfer_1024x1024.py'
 
