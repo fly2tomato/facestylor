@@ -14,14 +14,15 @@ from copy import deepcopy
 import numpy as np
 
 base_root = os.path.abspath(os.path.join(__file__, '../../'))
+ckpt_base = '/home/xlab-app-center/.cache'
 
 _SUPPORTED_STYLE = {
-    'toonify': base_root + '/work_dirs/lite-weights/agile_transfer_toonify1024x1024_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_1600iter_20211104_134449-cb6785b6.pth',
-    'oil': base_root + '/work_dirs/lite-weights/agile_transfer_metfaces-oil1024x1024_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_1600iter_20211104_134350-2b99cb9b.pth',
-    'sketch': base_root + '/work_dirs/lite-weights/agile_transfer_metfaces-sketch1024x1024_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_1600iter_20211104_134426-081af2a2.pth',
-    'cartoon':base_root + '/work_dirs/lite-weights/agile_transfer_photo2cartoon256x256_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_800_iter_20211201_140719-062c09fa.pth',
-    'bitmoji': base_root + '/work_dirs/lite-weights/agile_transfer_bitmoji256x256_z_wolpips_freezeD3_ada_bs4x2_lr_1e-4_iter_1600_20211202_195819-9010a9fe.pth',
-    'comic': base_root + '/work_dirs/lite-weights/agile_transfer_face2comics256x256_z_wolpips_freezeD3_ada_bs4x2_lr_1e-4_30kiter_best_fid_iter_15000_20211201_111145-4905b63a.pth'
+    'toonify': ckpt_base + '/work_dirs/lite-weights/agile_transfer_toonify1024x1024_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_1600iter_20211104_134449-cb6785b6.pth',
+    'oil': ckpt_base + '/work_dirs/lite-weights/agile_transfer_metfaces-oil1024x1024_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_1600iter_20211104_134350-2b99cb9b.pth',
+    'sketch': ckpt_base + '/work_dirs/lite-weights/agile_transfer_metfaces-sketch1024x1024_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_1600iter_20211104_134426-081af2a2.pth',
+    'cartoon':ckpt_base + '/work_dirs/lite-weights/agile_transfer_photo2cartoon256x256_zplus_lpips0.5_freezeD5_ada_bs4x2_lr_1e-4_800_iter_20211201_140719-062c09fa.pth',
+    'bitmoji': ckpt_base + '/work_dirs/lite-weights/agile_transfer_bitmoji256x256_z_wolpips_freezeD3_ada_bs4x2_lr_1e-4_iter_1600_20211202_195819-9010a9fe.pth',
+    'comic': ckpt_base + '/work_dirs/lite-weights/agile_transfer_face2comics256x256_z_wolpips_freezeD3_ada_bs4x2_lr_1e-4_30kiter_best_fid_iter_15000_20211201_111145-4905b63a.pth'
 }
 _CKPT_URL = {
     'encoder256':'https://download.openmmlab.com/mmgen/agilegan/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth',
@@ -179,12 +180,12 @@ if __name__ == '__main__':
 
     if args.style in _RES256:
         encoder_config = base_root + '/configs/demo/agile_encoder_256x256.py'
-        encoder_ckpt = base_root + '/work_dirs/pre-trained/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth'
+        encoder_ckpt = ckpt_base + '/work_dirs/pre-trained/agile_encoder_celebahq256x256_lr_1e-4_150k_20211104_134520-9cce67da.pth'
         download_ckpt(encoder_ckpt, _CKPT_URL['encoder256'])
         transfer_config = base_root + '/configs/demo/agile_transfer_256x256.py'
     else:
         encoder_config = base_root + '/configs/demo/agile_encoder_1024x1024.py'
-        encoder_ckpt = base_root + '/work_dirs/pre-trained/agile_encoder_ffhq1024x1024_lr_1e-4_500kiter_20211201_112111-fb1312dc.pth'
+        encoder_ckpt = ckpt_base + '/work_dirs/pre-trained/agile_encoder_ffhq1024x1024_lr_1e-4_500kiter_20211201_112111-fb1312dc.pth'
         download_ckpt(encoder_ckpt, _CKPT_URL['encoder1024'])
         transfer_config = base_root + '/configs/demo/agile_transfer_1024x1024.py'
 
