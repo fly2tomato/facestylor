@@ -129,7 +129,7 @@ share = False
 title="MMGEN-FaceStylor"
 description="This is a demo for MMGEN-FaceStylor.\n\n\t\
     To use it, simply upload an image, and select a style. Better use an sharp front face."
-description_zh = "这是MMGEN-FaceStylor的一个演示，只需要上传一张图片并选择一个风格，它就可以生成风格化的人脸图片。最好使用清晰的人正脸照片。网页下方有关于风格的解释。"
+description_zh = "这是MMGEN-FaceStylor的一个演示，只需要上传一张图片(须包含人脸，否则会推理失败) 并选择一个风格，它就可以生成风格化的人脸图片。最好使用清晰的人正脸照片。网页下方有关于风格的解释。"
 description_all = description_zh+description
 
 btn = HTML(label="ISSUE")
