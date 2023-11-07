@@ -107,7 +107,7 @@ def faceStylor(img, style_label, with_qrcode=True):
     except Exception as e:
       print(f"error={e}")
       testor.move_out_cuda()
-      return "failed"，"failed", "failed"
+      return "failed", "failed", "failed"
 
 
 
