@@ -1,6 +1,5 @@
 #!/bin/bash
 
-pip install -U openmim
 mim install mmcv-full==1.7.1
 
 cd /home/xlab-app-center/src/mmgeneration
