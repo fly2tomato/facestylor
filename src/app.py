@@ -1,4 +1,6 @@
 from subprocess import Popen, PIPE, STDOUT
+def exe_shell(command: str, shell: str = '/bin/bash'):
+    return Popen(command, stdout=PIPE, stderr=STDOUT, shell=True, executable=shell)
 print('install mmcv mmgen and mmcls')
 process=exe_shell(command="echo 'start to run shell script' && bash install.sh")
 try:
@@ -120,10 +122,6 @@ def faceStylor(img, style_label, with_qrcode=True):
       print("error", "facestylor")
       testor.move_out_cuda()
       return "failed"
-
-
-def exe_shell(command: str, shell: str = '/bin/bash'):
-    return Popen(command, stdout=PIPE, stderr=STDOUT, shell=True, executable=shell)
 
 
 
