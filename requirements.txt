@@ -1,12 +1,13 @@
+torch==1.13.0+cu117
+torchvision==0.14.0+cu117
+torchaudio==0.13.0
+--extra-index-url https://download.pytorch.org/whl/cu117
 cmake
 dlib==19.20.0
 wget
-gradio
+gradio==4.1.1
 opencv-python
 Pillow==8.0.0
 PrettyTable
 scipy
-torch==1.9.1
-torchvision==0.10.1
-torchaudio==0.9.1
 mmcls
