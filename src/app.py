@@ -150,6 +150,6 @@ iface = gr.Interface(
     article=article,
     allow_flagging=False
 )
-iface.queue(max_size=3)
+iface.queue(max_size=100)
 iface.launch(share=share, server_name="0.0.0.0", server_port=7860)
 
